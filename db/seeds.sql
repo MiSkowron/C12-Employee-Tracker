@@ -10,7 +10,7 @@ INSERT INTO role (title, salary)
 VALUES ('Manager', '40000.00'),
        ('Clerk', '25000.00');
 
-INSERT INTO employee (first_name, last_name, department_id, role_id)
+INSERT INTO employee (first_name, last_name, department_id, roles_id)
 VALUES ('Kyle', 'Black', 1, 1), 
        ('Billy', 'Burns', 1, 2),
        ('Bruno', 'McGill', 2, 1),
