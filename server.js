@@ -18,5 +18,49 @@ const db = mysql.createConnection(
 console.log(`Connected to the employee_db database.`)
 );
 
-db.connect
+db.connect(function(err) {
+    if (err) throw err;
+    console.log('Welcome!')
+    promptOne();
+});
+
+function promptOne() {
+    inquirer
+    .prompt({
+        type: 'list',
+        name: 'task',
+        message: "What would you like to do?",
+        choices: [
+            "View Employees",
+            "View Departments",
+            "Add Employee",
+            "Add Department",
+            "Quit"]
+    })
+    .then(function({task}) {
+        switch (task) {
+            case "View Employee":
+                viewEmployee();
+                break;
+            
+            case "ViewDepartment":
+                viewDepartment();
+                break;
+            
+            case "Add Employee":
+                addEmployee();
+                break;
+
+            case "Add Department":
+                addDepartment();
+                break;
+
+            case "Quit":
+                db.end();
+                break;
+        }
+    });
+
+}
+
 
